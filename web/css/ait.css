@@ -1,0 +1,888 @@
+/** ****************************************************************************************************************************
+
+Student Information System Styles
+May 5, 2008
+M. Knichel
+E. Maassmann
+
+DIV Site UI 2
+
+***************************************************************************************************************************** **/
+
+body{
+	margin-left: 2px;
+	margin-right: 2px;
+	width:100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color:#000000;
+	min-width:810px;
+    }
+
+table {
+	background-color:#FFFFFF;
+	}
+
+a:link, a:visited, a:active {
+	color:#336666;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration:none;
+   	white-space:nowrap;
+}
+
+
+a:hover {
+	/** background-color:#dbf1ff; **/
+	background-color:#d1e7ed;
+	color:#669999;
+	color:#ff0000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration:none;
+	border: none;
+	white-space:nowrap;
+}
+
+
+/** ****************************************************************************************************************************
+
+Use Div to make table
+
+***************************************************************************************************************************** **/
+div.Table
+{
+    display: table;
+    border: solid; 
+    border-width: thin;
+}
+div.Title
+{
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+div.Heading
+{
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+div.Row
+{
+    display: table-row;
+    width:100%;
+}
+div.navCell
+{
+    //width:250px;
+    display: table-cell;
+    /* border: solid; 
+    border-width: thin; */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/** ****************************************************************************************************************************
+
+Header Building Area
+
+***************************************************************************************************************************** **/
+#page_header{
+	width:100%;
+	/** height:60px; **/
+	text-align:center;	
+	font-weight:bold;
+	font-size:30px;
+	color:#336666;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#page_logo{
+    margin-left:10px;
+	float:left;
+	text-align:center;
+	}
+#page_title{
+    width:100%;
+	font-weight:bold;
+    text-align: center;
+	font-size:30px;
+	/** color:#336666; **/
+    color:#b20c15;
+	margin-top:15px;
+	font-family:Comic Sans MS, cursive, Arial, Helvetica, sans-serif;
+    position:absolute;
+    left:0;
+    top:0;
+	}
+#page_seal{
+	float:right;
+	height:75px;
+	padding-top:5px;
+	margin-right:10px;
+	}
+
+#page_head_seperator{
+	height:30px;
+	background-image:url(../images/build/green-bk.gif);
+	background-repeat:repeat-x;
+	clear:both;
+	width:100%;
+	}
+
+#page_date{
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+	vertical-align:middle;
+    width:350px;
+	float:left;
+	text-align:left;
+	padding:8px;
+	}
+#page_user{
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+	vertical-align:middle;
+    width:200px;
+	float:right;
+	text-align:right;
+	padding:8px;
+	}
+#page_lastLogin{
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+	vertical-align:middle;
+    width:400px;
+	float:left;
+	text-align:right;
+	padding:8px;
+	}
+/** ****************************************************************************************************************************
+
+Footer Building Info
+
+***************************************************************************************************************************** **/
+#page_footer{
+	width:100%;
+	clear:both;
+	text-align:center;
+	height: 75px;
+	line-height: 15px;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+	padding-top:50px;
+	}
+.footer {
+    height: 75px;
+    //background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    //padding-top: 20px;
+    text-align:center;
+}
+
+.float_clear{
+	clear:both;
+	}
+
+
+/** **************************
+	Message Dialog Div..
+************************** **/
+#messageDiv {
+	display: none;
+}
+
+
+
+/** ****************************************************************************************************************************
+T H I S  I S  T H E  S T A R T  O F  T H E  B O X  C S S
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!WARNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+be very very careful in here it could break everything
+
+***************************************************************************************************************************** **/
+.info_box{
+	min-width:150px;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:0px;
+	margin: 0px 10px 10px 0px; /** top right bottom left **/
+}
+.info_box_top{
+	background-repeat:repeat-x;
+	height:11px;
+	}
+.info_box_top_left, .info_box_bottom_left, .info_box_body_left{
+	float:left;
+	}
+.info_box_top_right, .info_box_bottom_right, .info_box_top_left, .info_box_bottom_left{
+	width:12px;
+	}
+.info_box_top_right, .info_box_bottom_right, .info_box_body_right{
+	float:right;
+	}
+.info_box_bottom{
+	background-repeat:repeat-x;
+	height:11px;
+	}
+.info_box_body_left, .info_box_body_right{
+	margin-bottom: -10000px; 
+	padding-bottom: 10000px;
+	}
+.info_box_body_center{
+	text-align:center;
+	margin-left:12px;
+	margin-right:12px;
+	}
+.info_box_body_center_title{
+	text-align:center;
+}
+.info_box_body_center_body{
+	text-align:left;
+	width:inherit;
+	padding:5px;
+}
+.info_box_body_center_title_img_right{
+	float:right;
+}
+.info_box_body_center_title_img_left{
+	float:left;
+}
+.info_box_body_center_title_img_title{
+	padding:5px;
+}
+.info_box_quote_img{
+	width:64px;
+	height:36px;
+	padding-left:10px;
+	float:left;
+}
+.info_box_quote_name{
+	float:left;
+	margin-top:20px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+}
+.info_box_quote{
+	height:36px;
+	margin-bottom:0px;
+	z-index: -1;
+}
+.info_box_quote_edate{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:9px;
+	color:#666666;
+	float:right;
+	margin-top:10px;
+	margin-right: 20px;
+}
+
+.info_box_quote_date{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#333333;
+	float:left;
+	margin-top:22px;
+	margin-left:7px;
+}
+/** ****************************************************************************************************************************
+
+Here is where you can add different color images in the call
+
+***************************************************************************************************************************** **/
+
+/** Blue Box **/
+.blue_box{
+	background:#fff;
+	padding:3px;
+	border:2px solid;
+	border-color: #c2dded;
+	font-size:1.2em;
+	border-radius:10px;
+	-moz-border-radius:10px; /** for firefox **/
+	-webkit-border-radius:10px; /** for safari **/
+	box-shadow: 5px 5px 5px #AAA;
+	-moz-box-shadow: 5px 5px 5px #AAA;
+	-webkit-box-shadow: 5px 5px 5px #AAA;	
+	/*behavior: url(/home/knichel/public_html/ait/ie-css3.htc);*/ /*Attempt to make effects work with IE - Failed */
+}
+.blue_box_top{
+	background-image:url(../images/box/box_blue_top.gif);
+}
+.blue_box_bottom{
+	background-image:url(../images/box/box_blue_bottom.gif);
+}
+.blue_box_right{
+	background-image:url(../images/box/box_blue_right.gif);
+	background-repeat:repeat-y;
+	background-position:right;
+	
+}
+.blue_box_left{
+	background-image:url(../images/box/box_blue_left.gif);
+	background-repeat:repeat-y;
+	background-position:left;
+}
+.blue_box_title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #333333;
+	font-weight: bold;
+}
+.blue_box_title_quote {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	font-weight: bold;
+	height:40px;
+}
+.blue_box_body{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color:#000000;
+}
+
+/** Red Box **/
+.red_box{
+	background:#fff;
+	padding:3px;
+	border:2px solid;
+	border-color: #ecc0b0;
+	font-size:1.2em;
+	border-radius:10px;
+	-moz-border-radius:10px; /** for firefox **/
+	-webkit-border-radius:10px; /** for safari **/
+	box-shadow: 5px 5px 5px #999;
+	-moz-box-shadow: 5px 5px 5px #999;
+	-webkit-box-shadow: 5px 5px 5px #999;	
+}
+.red_box_top{
+	background-image:url(../images/box/box_red_top.gif);
+}
+.red_box_bottom{
+	background-image:url(../images/box/box_red_bottom.gif);
+}
+.red_box_right{
+	background-image:url(../images/box/box_red_right.gif);
+	background-repeat:repeat-y;
+	background-position:right;
+}
+.red_box_left{
+	background-image:url(../images/box/box_red_left.gif);
+	background-repeat:repeat-y;
+	background-position:left;
+}
+
+.red_box_title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#FF0000;
+	font-weight: bold;
+	height:50px;
+}
+.red_box_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #D31D1D;
+	font-weight: bold;
+	text-align: left;
+}
+
+/** Yellow Box **/
+.yellow_box{
+	background:#fff;
+	padding:3px;
+	border:2px solid;
+	border-color: #ece4b0;
+	font-size:1.2em;
+	border-radius:10px;
+	-moz-border-radius:10px; /** for firefox **/
+	-webkit-border-radius:10px; /** for safari **/
+	box-shadow: 5px 5px 5px #999;
+	-moz-box-shadow: 5px 5px 5px #999;
+	-webkit-box-shadow: 5px 5px 5px #999;	
+}
+.yellow_box_top{
+	background-image:url(../images/box/box_yellow_top.gif);
+}
+.yellow_box_bottom{
+	background-image:url(../images/box/box_yellow_bottom.gif);
+}
+.yellow_box_right{
+	background-image:url(../images/box/box_yellow_right.gif);
+	background-repeat:repeat-y;
+	background-position:right;
+}
+.yellow_box_left{
+	background-image:url(../images/box/box_yellow_left.gif);
+	background-repeat:repeat-y;
+	background-position:left;
+}
+.yellow_box_title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#FF9900;
+	font-weight: bold;
+	height:40px;
+}
+.yellow_box_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	font-weight: bold;
+	vertical-align:middle;
+
+}
+
+/** ****************************************************************************************************************************
+
+Styling the Form Elements
+
+***************************************************************************************************************************** **/
+
+input.submit{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+/**	color:#336666;
+	font-weight:bold;
+	font-size:11px;
+	background-image:url(../images/buttons/bk.gif);
+	background-repeat:repeat-x;
+	height:20px;
+	background-position:center;
+	border:0;
+	margin-bottom:5px;
+	cursor:pointer;
+**/
+	}
+
+/** ****************************************************************************************************************************
+
+Gradebook Styles
+
+***************************************************************************************************************************** **/
+
+/** ---------------------
+Gradebook Build Styles
+----------------------- **/
+
+.grade_book {
+	border:#000000;
+	border-width:1px;
+	border-collapse:collapse;
+}
+
+.grade_book td {
+	border:#000000;
+	border-width:1px;
+	border-style:solid;
+}
+.grade_input{
+	width:30px;
+}
+
+.student_name{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#336666;
+	margin-left:5px;
+}
+
+#class_name{
+		font-weight:bold;
+		font-size:15px;
+		color:#336666;
+		margin-left:2px;
+		margin-right:2px;
+		margin-bottom:5px;
+		margin-top:5px;
+		height:175px;
+		width:175px;
+		padding:0px;
+		font-family:Arial, Helvetica, sans-serif;
+		vertical-align:middle;
+}
+.grade_name_col{
+	width:175px;
+}
+/** -----------
+hover for gradebook
+---------------- **/
+tr.grade_book{
+	background-color: #FFFFFF;
+}
+tr.grade_book:hover{
+	background-color: #FEF1B5;
+	background-color: #d1e7ed;
+}
+.tableRowClickEffect{
+	background-color:#fef1b5;
+	/*color:#FFF;*/
+}
+tr.alt {
+	background: #ecf6fc;
+	background: #bcd4ec;
+}
+tr.over td{
+	background: #bcd4ec;
+	background: #fef1b5;
+	/* color: #ffffff; */
+}
+tr.clicked td{
+	background: #fef1b5;
+}
+
+#gradeBookContainer {
+   margin-left:auto;
+   margin-right:auto;
+   padding: 0;
+   width: 900px;
+   height:100%;
+   min-width:1000px;
+   max-width:900px;
+   /*overflow-x:scroll;*/
+}
+#gradeBookLeft {
+   float: left;
+   right:0px;
+   margin: 1px 0px 1px 1px;
+   padding: 0%;
+   color: #000;
+   max-width:230px;
+   height:100%;
+
+}
+#gradeBookRight {
+   float: left;
+   margin: 1px 1px 1px 0px;
+   max-width:700px;
+   height:100%;
+   overflow-x:scroll;
+}
+.gradeBookClear {
+   height: 0;
+   font-size: 1px;
+   margin: 0;
+   padding: 0;
+   line-height: 0;
+   clear: both;
+}
+.gradeBookStudentRowGrades{
+    height: 35px;
+}
+.gradeBookStudentRowStudent{
+    height: 35px;
+}
+.gradeBookHeaderRow{
+    height: 35px;
+}
+.gradeBookGradeRow{
+    height: 35px;
+}
+.gradeBookAssignmentHead{
+    height: 200px;
+}
+
+
+/** ****************************************************************************************************************************
+
+Progress Build Report
+
+***************************************************************************************************************************** **/
+.grade_book_print {
+    width:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    text-align:left;
+    vertical-align:top;
+}
+.grade_book_print td {
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-left:4px;
+    padding-right:2px;
+}
+tr.grade_header{
+    background-color: #333333;
+    color:#FFFFFF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    text-align:center;
+}
+.assignment{
+	vertical-align:top;
+}
+.row_even{
+    background-color:#EEEEEE;
+    vertical-align:top;
+}
+.row_odd{
+    background-color:#FFFFFF;
+    vertical-align:top;
+}
+.row_even:hover, .row_odd:hover{
+    background-color:#BBBBBB;
+    vertical-align:top;
+}
+p.grade_book_title, p.grade_book_title_m, p.grade_book_term{
+    font-size:12px;
+    line-height:18px;
+    color:#336666;
+    padding:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    vertical-align:middle;
+    margin:0px;
+    margin-bottom:5px;
+    margin-left:5px;
+}
+.summary_table{
+	vertical-align:top;
+	width:100%;
+}
+p.grade_book_title_m{
+    font-size:14px;
+    font-weight:bold;
+}
+p.grade_book_term{
+    margin-top:15px;
+    margin-bottom:10px;
+    text-align:center;
+    font-weight:bold;
+    font-size:13px;
+}
+.assignment_with_comment{
+    white-space:nowrap;
+    color:blue;
+}
+.assignment_without_comment{
+    white-space:nowrap;
+    color:black;
+}
+
+/** ****************************************************************************************************************************
+
+Multi Class Build
+
+***************************************************************************************************************************** **/
+
+div.class_title{
+    width:100%;
+    /** border-style:solid; **/
+}
+.term_title{
+    text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	padding-left:20px;
+   	background-color:#CCCCCC;    
+}
+td.overall{
+	font-size:12px;
+	font-weight:bold;
+   	background-color:#9999AA;    
+}
+.class_info_frame{
+	/** float:left; **/
+	background-color:#EEEEEE;
+	height:34px;
+    /** width:100%; **/
+    /** border-style:solid; **/
+}
+.cat_info{
+	text-align:center;
+	line-height:18px;
+    vertical-align:middle;   
+}
+td.progress_title{
+    font-size:18px;
+    font-weight:bold;
+    padding:10px;
+    line-height:22px;
+    color:#336666;
+    font-family:Arial, Helvetica, sans-serif;
+    vertical-align:middle;
+    margin:0px;
+    margin-bottom:5px;
+    margin-left:5px;
+}
+td.student_name{
+    font-size:14px;
+    font-weight:bold;
+    padding:5px;
+    line-height:18px;
+    color:#336666;
+    font-family:Arial, Helvetica, sans-serif;
+    vertical-align:middle;
+    margin:0px;
+    margin-bottom:5px;
+    margin-left:5px;
+}
+div.class_avg_frame{
+   float:right;
+    /** border-style:dotted; **/
+}
+
+div.class_cat_frame{
+   float:left;
+    /** border-style:dotted; **/
+}
+div.class_cat_title{
+    width:100%;
+    /** border-style:dotted; **/
+	
+}
+div.class_cat_grade{
+    width:100%;
+    /** border-style:dotted;**/
+
+}
+
+/** ****************************************************************************************************************************
+
+Some Other Styles used in some places
+
+***************************************************************************************************************************** **/
+.attendanceStudentRow{
+    height: 25px;
+}
+.title-text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	font-weight: bold;
+	vertical-align:middle;
+	white-space:nowrap;
+	text-align:center;
+}
+
+.small-print {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#222222;
+}
+.gray-text {
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+	vertical-align:middle;
+}
+
+table.dropBox{
+	font-size: 12px;
+	white-space:nowrap;
+}
+td.dropBox{
+	font-size: 12px;
+	white-space:nowrap;
+}
+.comment-title {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Veranda, Airal, Helvetica, sans-serif;
+    color: #222222;    
+}
+
+/** ****************************************************************************************************************************
+
+jQuery DatePicker css
+
+***************************************************************************************************************************** **/
+
+
+fieldset {
+	border: none;
+}
+#ui-datepicker-div {
+	width: 300px;
+	border: 1px solid rgb(128, 128, 128);
+	padding: 5px;
+	background: lightgreen;
+	display: none;
+}
+div.ui-datepicker-control {
+	position: relative;
+	height: 25px;
+	background: forestgreen;
+}
+div.ui-datepicker-control div {
+	padding: 5px;
+}
+div.ui-datepicker-control div a {
+	color: #fff;
+}
+div.ui-datepicker-links {
+	position: relative;
+	height: 20px;
+	padding: 5px 0 0 0;
+	background: darkgreen;
+	border-bottom: 1px solid green;
+	text-align: center;
+}
+div.ui-datepicker-links div {
+	padding: 5px;
+}
+div.ui-datepicker-links div a {
+	color: #fff;    
+}
+div.ui-datepicker-clear,
+div.ui-datepicker-prev {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div.ui-datepicker-close,
+div.ui-datepicker-next {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+div.ui-datepicker-current {
+	display: inline;
+}
+div.ui-datepicker-header {
+	margin-top: 5px;
+	text-align: center;
+}
+div.ui-datepicker-header select {
+	margin: 0 3px;    
+}
+table.ui-datepicker {
+	width: 250px;
+	border-collapse: collapse;
+	margin: 10px 0 0 0;
+}
+table.ui-datepicker td {
+	padding: 3px;
+	border: 1px solid green;
+}
+table.ui-datepicker thead td {
+	text-align: center;
+	font-weight: bold;
+	background: green;
+	color: lightgreen;
+}
+td.ui-datepicker-today {
+	background: #dff6e4;
+}
+td.ui-datepicker-current-day {
+	background: darkgreen;
+	color: #fff;
+}
+
+

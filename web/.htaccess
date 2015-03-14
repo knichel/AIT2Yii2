@@ -1,0 +1,15 @@
+RewriteEngine on
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteBase /~knichel/ait2yii2/web
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Otherwise forward it to index.php
+RewriteRule . index.php
+
+# from old .htaccess yii 1.1.16
+#Options +FollowSymLinks
+#IndexIgnore */*
+
+
