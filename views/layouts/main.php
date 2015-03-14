@@ -63,6 +63,7 @@ $session = Yii::$app->session;
                 $links .= Html::a('Attendance','@web/attendance')."<br>\n";
                 $links .= Html::a('Terms','@web/term')."<br>\n";
                 $links .= Html::a('Categories','@web/category')."<br>\n";
+                $links .= Html::a('School Years','@web/school-year')."<br>\n";
                 
                 $links .= Html::a('Logout','@web/site/logout')."<br>\n";
             }

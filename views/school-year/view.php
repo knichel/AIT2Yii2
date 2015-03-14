@@ -23,12 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Back',Yii::$app->request->referrer, ['class' => 'btn btn-info']) ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'school_year_id',
+            //'school_year_id',
             'school_year_description',
             'start_date',
             'end_date',
