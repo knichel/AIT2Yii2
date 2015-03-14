@@ -53,17 +53,18 @@ $session = Yii::$app->session;
             if (\Yii::$app->user->isGuest) {
                 $links .= Html::a('Login','@web/site/login')."<br>\n";
             } else{
+                $links .= Html::a('Terms','@web/term')."<br>\n";
                 $links .= Html::a('Users','@web/user')."<br>\n";
                 $links .= Html::a('Schools','@web/school')."<br>\n"; 
                 $links .= Html::a('Ed centers','@web/ed-center')."<br>\n"; 
+                $links .= Html::a('School Years','@web/school-year')."<br>\n";
                 $links .= Html::a('Courses','@web/course')."<br>\n"; 
                 $links .= Html::a('Sections','@web/section')."<br>\n"; 
                 $links .= Html::a('Custom Scores','@web/custom-score')."<br>\n"; 
-                $links .= Html::a('Assignments','@web/assignment')."<br>\n"; 
-                $links .= Html::a('Attendance','@web/attendance')."<br>\n";
-                $links .= Html::a('Terms','@web/term')."<br>\n";
                 $links .= Html::a('Categories','@web/category')."<br>\n";
-                $links .= Html::a('School Years','@web/school-year')."<br>\n";
+                $links .= Html::a('Assignments','@web/assignment')."<br>\n"; 
+                $links .= Html::a('Grades','@web/grade')."<br>\n";
+                $links .= Html::a('Attendance','@web/attendance')."<br>\n";
                 
                 $links .= Html::a('Logout','@web/site/logout')."<br>\n";
             }
