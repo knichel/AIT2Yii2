@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Category;
+use app\models\Section;
 
 /**
  * CategorySearch represents the model behind the search form about `app\models\Category`.
@@ -13,6 +14,9 @@ use app\models\Category;
 class CategorySearch extends Category
 {
     public $section;
+    public $term;
+    public $course;
+
     /**
      * @inheritdoc
      */
@@ -20,7 +24,7 @@ class CategorySearch extends Category
     {
         return [
             [['category_id', 'section_id', 'category_weight', 'category_ord'], 'integer'],
-            [['category_name', 'section'], 'safe'],
+            [['category_name', 'section','term'], 'safe'],
         ];
     }
 
@@ -42,8 +46,13 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find();
-        $query->joinWith('section');
+        $session = Yii::$app->session;
+
+        $query = Category::find()
+                ->joinWith(['section','section.term','section.course'])
+                ->where(['course.teacher_id' => $session['user.user_id']])
+                ->andWhere(['course.school_year_id' => $session['schoolYears.currentSchoolYear']])
+                ->orderBy('section_id','category_name');//'section.term_id','section.course_id',
         
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

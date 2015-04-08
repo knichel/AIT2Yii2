@@ -21,8 +21,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'term_id') ?>
 
-    <?= $form->field($model, 'is_core') ?>
-
     <?= $form->field($model, 'course_id') ?>
 
     <div class="form-group">

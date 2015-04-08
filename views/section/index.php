@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'section_id',
             //'created_date',
             ['attribute'=>'termName', 'value' => 'term.term_name'],
-            //'term_id',
-            //'is_core',
+            // ['attribute'=>'termOrder', 'value'=>'term_ord'],
+            // 'term.term_ord',
             ['attribute'=>'courseName', 'value' => 'course.course_name'],
             //'course_id',
 

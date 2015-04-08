@@ -50,8 +50,8 @@ class School extends \yii\db\ActiveRecord
             'school_id' => 'School ID',
             'school_name' => 'School Name',
             'attend_officer' => 'Attend Officer',
-            'attend_email' => 'Attend Email',
-            'ed_center_id' => 'Ed Center',
+            'attend_email' => 'Attend Officer Email',
+            'ed_center_id' => 'Center Name',
             'phone' => 'Phone',
         ];
     }

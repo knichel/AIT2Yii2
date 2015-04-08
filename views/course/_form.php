@@ -8,18 +8,13 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 
 use yii\helpers\ArrayHelper; // to create dropDownList
-use app\models\EdCenter; // to use relation in dropDownList
-use app\models\SchoolYear;
 use app\models\User;
 use app\models\Term;
-//use app\models\Section;
+//use dosamigos\datepicker\DatePicker; // github datepicker
+
 
 $userList=ArrayHelper::map(User::find()->all(),'user_id', 'fullName');
-$centerList=ArrayHelper::map(EdCenter::find()->all(), 'ed_center_id', 'ed_center_name');
-//$schoolYearList=ArrayHelper::map(SchoolYear::find()->all(),'school_year_id','school_year_description');
 $termList=ArrayHelper::map(Term::find()->where(['school_year_id' => 9])->asArray()->all(),'term_id', 'term_name');
-//$sectionList=Arrayhelper::map(Section::find()->all(),'term_id')
-
 
 ?>
 
@@ -31,15 +26,22 @@ $termList=ArrayHelper::map(Term::find()->where(['school_year_id' => 9])->asArray
 
     <?php echo $form->field($model, 'course_name')->textInput(['maxlength' => 50]) ?>
 
-    <?php echo $form->field($model, 'is_core')->checkboxList([ 'Y' => 'Y', 'N' => 'N', ]) ?>
+    <?php echo $form->field($model, 'is_core')->radioList(['Y' => "Y", 'N' => "N"], ['itemOptions' => ['class' =>'radio-inline']]) ?>
     
     <?php echo $form->field($model, 'minutes')->textInput() ?>
 
-    <?php echo $form->field($model, 'period')->checkboxList([ 'AM' => 'AM', 'PM' => 'PM', ]) ?>
+    <?php echo $form->field($model, 'period')->radioList(['AM' => "AM", 'PM' => "PM"], ['itemOptions' => ['class' =>'radio-inline']]) ?>
+        
+    <?php 
+        echo Html::activeHiddenInput($model, 'ed_center_id', ['value' => '1']); 
+        echo Html::activeHiddenInput($model, 'school_year_id', ['value' => '9']) 
+    ?>
+    
     
     <h3>Select Terms for Course</h3>
+
     <?php 
-        echo Html::checkboxList('termsList', [140,141] , $termList, ['separator'=>'<br>']); //141 is array of ID of selected value...
+        echo Html::checkboxList('termsList', $selected , $termList, ['separator'=>'<br>']); //141 is array of ID of selected value...
     ?>
     
     <div class="form-group">

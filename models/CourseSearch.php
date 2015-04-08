@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Course;
 
+
 /**
  * CourseSearch represents the model behind the search form about `app\models\Course`.
  */
@@ -45,11 +46,9 @@ class CourseSearch extends Course
      */
     public function search($params)
     {
-        $query = Course::find();
-        $query->joinWith('teacher');
-        $query->joinWith('schoolYear'); // teacher & schoolYear are the relations in the course model
-        //$query->where(['teacher_id'=>$_SESSION['user.user_id']]);
-        
+        // moved query to Course model
+        $query = Course::getTeacherCourseList();
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

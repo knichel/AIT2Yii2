@@ -138,7 +138,7 @@ class Course extends \yii\db\ActiveRecord
      */
     public function getSections()
     {
-        return $this->hasMany(Section::className(), ['course_id' => 'course_id']);
+        return $this->hasMany(Section::className(), ['course_id' => 'course_id'])->orderBy('term_id');
     }
 
     /**
@@ -163,5 +163,17 @@ class Course extends \yii\db\ActiveRecord
     public function getWbls()
     {
         return $this->hasMany(Wbl::className(), ['course_id' => 'course_id']);
+    }
+
+    public static function getTeacherCourseList(){
+        $session = Yii::$app->session;
+        $query = Course::find();
+        $query->joinWith('teacher');
+        $query->joinWith('schoolYear'); // teacher & schoolYear are the relations in the course model
+        $query->where(['teacher_id'=>$session['user.user_id']]);
+        $query->where(['course.school_year_id'=> $session['schoolYears.currentSchoolYear']]);
+        $query->orderBy('is_core desc');
+
+        return $query;
     }
 }

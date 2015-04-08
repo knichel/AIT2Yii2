@@ -3,11 +3,14 @@
 namespace app\controllers;
 
 use Yii;
+use yii\filters\AccessControl;
 use app\models\Course;
+use app\models\Section;
 use app\models\CourseSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\session;
 
 /**
  * CourseController implements the CRUD actions for Course model.
@@ -17,6 +20,15 @@ class CourseController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -61,15 +73,24 @@ class CourseController extends Controller
     public function actionCreate()
     {
         $model = new Course();
-
-        if ($model->load(Yii::$app->request->post())){
-            var_dump(Yii::$app->request->post()); exit;
-        }
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()){
+            
+            $terms = Yii::$app->request->post('termsList');
+            if($model->save()){
+                $courseID = $model->course_id;
+                foreach($terms as $termID){
+                    $section = new Section();
+                    $section->course_id = $courseID;
+                    $section->term_id = $termID;
+                    $section->save(false);
+                }
+            }
             return $this->redirect(['view', 'id' => $model->course_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'selected'=> [],
             ]);
         }
     }
@@ -83,12 +104,39 @@ class CourseController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        
+        $currentTerms = [];
+        foreach($model->sections as $section){
+            $currentTerms[] = $section->term_id;
+        }
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // terms selected by user from post
+            $futureTerms = Yii::$app->request->post('termsList');
+            
+            $insertTerms = array_diff($futureTerms,$currentTerms);
+            $removeTerms = array_diff($currentTerms,$futureTerms);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if($model->save()){
+                $courseID = $model->course_id;
+                foreach($insertTerms as $termID){
+                    $section = new Section();
+                    $section->course_id = $courseID;
+                    $section->term_id = $termID;
+                    $section->save(false);
+                }
+                foreach($removeTerms as $termID){
+                    $section = Section::find()->where(['course_id'=>$courseID,'term_id'=>$termID])->one();
+                    $section->delete();
+                }
+            }
+            
             return $this->redirect(['view', 'id' => $model->course_id]);
         } else {
+            
             return $this->render('update', [
                 'model' => $model,
+                'selected'=>$currentTerms,
             ]);
         }
     }

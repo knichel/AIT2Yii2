@@ -33,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_date',
             'course.course_name',
             'term.term_name',
-            //'is_core',
         ],
     ]) ?>
 

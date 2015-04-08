@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'attend_email:email',
             //'edCenter.ed_center_name',
             // 'phone',
-            ['attribute' => 'edCenter', 'value' => 'edCenter.ed_center_name'],
+            ['attribute' => 'edCenter', 'value' => 'edCenter.ed_center_name', 'label'=>'Center Name'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

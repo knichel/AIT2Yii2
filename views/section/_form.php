@@ -28,11 +28,7 @@ $termList=ArrayHelper::map(Term::find()->all(), 'term_id', 'term_name');
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php //echo $form->field($model, 'created_date')->textInput() ?>
-
     <?php echo $form->field($model, 'term_id')->dropDownList($termList,['prompt'=>'--Choose a Term--']) ?>
-
-    <?php //echo $form->field($model, 'is_core')->dropDownList([ 'Y' => 'Y', 'N' => 'N', ], ['prompt' => '']) ?>
 
     <?php echo $form->field($model, 'course_id')->dropDownList($courseList,['prompt'=>'--Choose a Course--']) ?>
 

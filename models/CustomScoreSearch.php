@@ -44,9 +44,12 @@ class CustomScoreSearch extends CustomScore
      */
     public function search($params)
     {
+        $session = Yii::$app->session;
         $query = CustomScore::find();
         $query->joinWith('teacher');
         $query->joinWith('schoolYear'); // teacher & schoolYear are the relations in the course model
+        $query->where(['custom_score.school_year_id'=> $session['schoolYears.currentSchoolYear']]);
+        $query->andWhere(['teacher_id'=>$session['user.user_id']]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

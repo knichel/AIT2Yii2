@@ -21,7 +21,7 @@ class SectionSearch extends Section
     {
         return [
             [['section_id', 'term_id', 'course_id'], 'integer'],
-            [['created_date', 'is_core', 'termName', 'courseName'], 'safe'],
+            [['created_date', 'termName', 'courseName'], 'safe'],
         ];
     }
 
@@ -43,9 +43,10 @@ class SectionSearch extends Section
      */
     public function search($params)
     {
-        $query = Section::find();
-        $query->joinWith('term');
-        $query->joinWith('course');
+
+        // Moved the query to Section/SectionQuery Model so I can reuse it in other views.
+        $query = Section::getTeacherSectionList();
+        // $query = Section::find()->teacherSectionList()->all();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -74,8 +75,7 @@ class SectionSearch extends Section
             //'course_id' => $this->course_id,
         ]);
 
-        $query->andFilterWhere(['like', 'is_core', $this->is_core])
-            ->andFilterWhere(['like','course.course_name', $this->courseName])
+        $query->andFilterWhere(['like','course.course_name', $this->courseName])
             ->andFilterWhere(['like','term.term_name', $this->termName]);
 
         return $dataProvider;
